@@ -8,7 +8,7 @@ function makeRequest(location) {
         if(location==='nowcoding') {
             resolve('hi')
         } else {
-            reject('we can only talk to nowcoding')
+            reject('에러발생')
         }
 
     })
@@ -24,12 +24,14 @@ function processRequest( res ) {
 
 console.log('start');
 
-makeRequest('nowcoding').then( (message)=>{
+makeRequest('abc').then( (message)=>{
     console.log(message)
     return  processRequest(message)
 
 }).then((msg)=> {
     console.log(msg);
+}).catch(err=> {
+    console.log(err)
 })
 
 console.log('end')
